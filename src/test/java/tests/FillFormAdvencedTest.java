@@ -2,8 +2,6 @@ package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,24 +19,23 @@ import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FillFormBasicTest
-{
-    private String browsername;
+public class FillFormAdvencedTest {
+    private final String browserName = "chrome"; // pole niezmienialne - "final"
     private final boolean headlessBrowser = false;
     private WebDriver driver;
     private final String appUrl = "http://www.automationpractice.pl/index.php";
 
     private Logger log = LoggerFactory.getLogger(FillFormBasicTest.class);
 
-//    @Test
-    @ParameterizedTest
-    @CsvFileSource(resources = "/browsers.csv")
-    void fillFormBasicScenario(String browsername) // przekazujemy wartość jako parametr we wszystkich metodach
+        @Test
+//    @ParameterizedTest
+//    @CsvFileSource(resources = "/browsers.csv")
+    void fillFormBasicScenario() // przekazujemy wartość jako parametr we wszystkich metodach
     {
 //        System.out.println("Start test!");
         log.info("Test start");
         //Inicjalizacja drivera
-        driver=getDriver(browsername);
+        driver=getDriver();
         // oczekiwanie 5s
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         //Otwarcie URLa
@@ -95,9 +92,9 @@ public class FillFormBasicTest
         log.info("Przeglądarka zamknięta");
 
     }
-    private WebDriver getDriver(String browsername)
+    private WebDriver getDriver()
     {
-        switch (browsername)
+        switch (browserName)
         {
             case "chrome" ->
             {
