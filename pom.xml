@@ -16,6 +16,7 @@
         <logback.version>1.4.14</logback.version>
         <logback.jakcson.verion>0.1.5</logback.jakcson.verion>
         <logstash.version>7.3</logstash.version>
+        <selenium.version>4.18.1</selenium.version>
     </properties>
 
     <dependencies>
@@ -93,7 +94,13 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.18.1</version>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>${selenium.version}</version>
         </dependency>
 
     </dependencies>
